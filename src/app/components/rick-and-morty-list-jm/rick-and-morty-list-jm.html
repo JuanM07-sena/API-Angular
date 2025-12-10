@@ -1,0 +1,27 @@
+<section class="rm-wrap">
+  <header class="rm-header">
+    <h1>Rick & Morty</h1>
+    <p class="lead">Personajes destacados</p>
+  </header>
+
+  <div *ngIf="loading" class="loading">Cargando personajes...</div>
+
+  <div *ngIf="error && !loading" class="error">
+    <p>{{ error }}</p>
+    <button (click)="load()">Reintentar</button>
+  </div>
+
+  <div class="cards" *ngIf="!loading && !error">
+    <article class="card rm-card" *ngFor="let c of characters" (click)="openDetail(c.id)">
+      <div class="img" [style.background-image]="'url(' + c.image + ')'"></div>
+      <div class="body">
+        <h3>{{ c.name }}</h3>
+        <div class="meta">
+          <span class="pill">{{ c.species }}</span>
+          <span class="pill">{{ c.gender }}</span>
+        </div>
+        <div class="status">{{ c.status }}</div>
+      </div>
+    </article>
+  </div>
+</section>

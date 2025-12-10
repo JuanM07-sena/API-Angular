@@ -1,0 +1,19 @@
+<section class="rm-detail">
+  <div *ngIf="loading" class="loading">Cargando personaje...</div>
+  <div *ngIf="error && !loading" class="error">{{ error }}</div>
+
+  <div *ngIf="!loading && character" class="card">
+    <div class="left" [style.background-image]="'url(' + character.image + ')'"></div>
+    <div class="right">
+      <h2>{{ character.name }}</h2>
+      <p class="meta"><strong>Especie: </strong> {{ character.species }}</p>
+      <p class="meta"><strong>Género: </strong> {{ character.gender }}</p>
+      <p><strong>Status:</strong> {{ character.status }}</p>
+      <p><strong>Origin:</strong> {{ character.origin?.name }}</p>
+      <p><strong>Location:</strong> {{ character.location?.name }}</p>
+      <div class="episodes">
+        <strong>Algunos episodios:</strong> {{ episodePreview || '—' }}
+      </div>
+    </div>
+  </div>
+</section>

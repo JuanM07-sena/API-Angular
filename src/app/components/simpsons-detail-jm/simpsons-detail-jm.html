@@ -1,0 +1,14 @@
+<section class="sim-detail">
+  <div *ngIf="loading" class="loading">Cargando personaje...</div>
+  <div *ngIf="error && !loading" class="error">{{ error }}</div>
+
+  <div *ngIf="!loading && character" class="content">
+    <img [src]="character.image || 'assets/placeholder/simpson.png'" alt="{{character.name}}">
+    <div class="info">
+      <h2>{{ character.name }}</h2>
+      <p *ngIf="character.description">{{ character.description }}</p>
+      <p *ngIf="character.role"><strong>Role:</strong> {{ character.role }}</p>
+      <pre *ngIf="!character.description">{{ character | json }}</pre>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<section class="db-detail">
+  <div *ngIf="loading" class="loading">Cargando personaje...</div>
+  <div *ngIf="error && !loading" class="error">{{ error }}</div>
+
+  <div *ngIf="!loading && character" class="content">
+    <img class="hero" [src]="character.image || character.photo || 'assets/placeholder/dragon.png'" alt="{{character.name}}">
+    <div class="info">
+      <h2>{{ character.name }}</h2>
+      <p><strong>Descripción:</strong> {{character.description}}</p>
+        <h4>Características</h4>
+      <div class="powers">
+        <ul>
+          <li><strong>Ki:</strong> {{character.ki}}</li>
+          <li *ngIf="character.maxKi"><strong>MaxKi:</strong> {{ character.maxKi }}</li>
+          <li *ngIf="character.race"><strong>Raza:</strong> {{ character.race }}</li>
+          <li *ngIf="character.affiliation"><strong>Afiliación:</strong> {{ character.affiliation }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

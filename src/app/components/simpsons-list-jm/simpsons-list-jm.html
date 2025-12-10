@@ -1,0 +1,18 @@
+<section class="sim-wrap">
+  <h1>The Simpsons</h1>
+  <p class="lead">Personajes clásicos</p>
+
+  <div *ngIf="loading" class="loading">Cargando personajes...</div>
+  <div *ngIf="error && !loading" class="error">{{ error }}</div>
+
+  <div class="list" *ngIf="!loading && !error">
+    <article class="sim-card" *ngFor="let p of characters" (click)="openDetail(p.id)">
+      <img [src]="p.image || 'assets/placeholder/simpson.png'" alt="{{p.name}}">
+          <div class="text">
+                    <h3>{{ p.name }}</h3>
+                    <p class="gender">Género: **{{ p.gender }}**</p>
+                    <p class="age">Edad: {{ p.age }}</p>
+                </div>
+    </article>
+  </div>
+</section>

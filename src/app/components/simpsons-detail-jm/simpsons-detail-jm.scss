@@ -1,0 +1,32 @@
+:host { 
+    display:block;
+     padding:18px; 
+     font-family: "Comic Sans MS", Arial, sans-serif;
+  
+     }
+.loading {
+     color:#8a5a00;
+     }
+.error { 
+    background:#fff1f0;
+     padding:10px; 
+     border-radius:8px;
+      color:#8b1c1c;
+     }
+.sim-detail .content { 
+    display:flex;
+     gap:16px;
+     background:#fff; 
+     padding:12px;
+      border-radius:12px; 
+    }
+.content img { 
+    width:200px; 
+    height:200px; 
+    object-fit:cover;
+     border-radius:12px;
+     }
+.info h2 { 
+    margin:0 0 6px 0; 
+    color:#d47c00; 
+}

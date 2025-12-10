@@ -1,0 +1,23 @@
+.navbar-jm {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 16px;
+  background:#000000f1;
+  color:#ff9898;
+  box-shadow: 0px 2px 5px rgb(3, 0, 0);
+  .nav-links { 
+    list-style:none;
+     display:flex;
+      gap:12px;
+       margin:0; 
+       padding:0;
+    a { 
+      color:#ff9898;
+       text-decoration:none;
+      &.active { 
+        font-weight:700;
+         color:#ffffff; }
+    }
+  }
+}

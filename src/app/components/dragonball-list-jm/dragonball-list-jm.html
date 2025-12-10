@@ -1,0 +1,15 @@
+<section class="db-wrap">
+  <h1>Dragon Ball</h1>
+  <p class="lead">Guerreros y personajes</p>
+
+  <div *ngIf="loading" class="loading">Cargando personajes...</div>
+  <div *ngIf="error && !loading" class="error">{{ error }}</div>
+
+  <div class="grid" *ngIf="!loading && !error">
+    <article class="db-card" *ngFor="let c of characters" (click)="openDetail(c)">
+      <div class="poster"><h3>{{ c.name }}</h3></div>
+      <img [src]="c.image || c.photo || 'assets/placeholder/dragon.png'" alt="{{c.name}}">
+      <div class="power">Power: {{ c.ki ?? c.power_level ?? '—' }}</div>
+    </article>
+  </div>
+</section>
