@@ -1,14 +1,23 @@
 <section class="sim-detail">
   <div *ngIf="loading" class="loading">Cargando personaje...</div>
-  <div *ngIf="error && !loading" class="error">{{ error }}</div>
 
-  <div *ngIf="!loading && character" class="content">
-    <img [src]="character.image || 'assets/placeholder/simpson.png'" alt="{{character.name}}">
-    <div class="info">
-      <h2>{{ character.name }}</h2>
-      <p *ngIf="character.description">{{ character.description }}</p>
-      <p *ngIf="character.role"><strong>Role:</strong> {{ character.role }}</p>
-      <pre *ngIf="!character.description">{{ character | json }}</pre>
+  <div *ngIf="character && !loading" class="card-detail">
+
+    <div class="left">
+      <img [src]="'https://cdn.thesimpsonsapi.com/500' + character.portrait_path" alt="{{ character.name }}">
     </div>
+
+    <div class="right">
+      <h2>{{ character.name }}</h2>
+
+      <p><strong>Status:</strong> {{ character.status }}</p>
+      <p><strong>Occupation:</strong> {{ character.occupation }}</p>
+      <p><strong>Gender:</strong> {{ character.gender }}</p>
+      <p><strong>Age:</strong> {{ character.age }}</p>
+      <p><strong>Birthday:</strong> {{ character.birthdate }}</p>
+      <p><strong>Phrases:</strong> {{ character.phrases }}</p>
+
+    </div>
+
   </div>
 </section>

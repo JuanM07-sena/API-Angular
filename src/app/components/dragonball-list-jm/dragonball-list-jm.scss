@@ -3,8 +3,11 @@
      padding:18px;
       font-family: Inter, Arial, sans-serif;
       background-color: #ff9500;
+      height: 5000px;
+      text-align: center;
      }
 h1 { 
+    
     color:#000000; 
     margin:0 0 6px;
  }
@@ -32,12 +35,15 @@ h1 {
      padding:10px;
      background: linear-gradient(90deg,#ffb347,#ffcc33); 
      text-align:center; 
+
     }
 .db-card img { 
-    width:100%; 
-    height:140px;
-     object-fit:cover;
-      display:block; 
+    width:250px; 
+    height:350px;
+    object-fit:cover;
+      display:block;
+      
+
     }
 .power { 
     padding:10px;
@@ -46,6 +52,7 @@ h1 {
      }
 .loading { 
     color:#a84a00; 
+    
 }
 .error { 
     background:#fff1f0; 

@@ -18,7 +18,7 @@ export class RickAndMortyDetailJm implements OnInit {
 
   constructor(private route: ActivatedRoute, private api: RickAndMortyApiService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.route.paramMap.subscribe(params => {
       const idStr = params.get('id');
       const idNum = idStr !== null ? Number(idStr) : NaN;
@@ -47,5 +47,6 @@ export class RickAndMortyDetailJm implements OnInit {
         }
       });
     });
+
   }
 }

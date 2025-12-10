@@ -4,6 +4,7 @@
       font-family: Inter, Arial, sans-serif;
       background-color: black;
     box-shadow: 0px 15px 10px rgb(97, 97, 97);
+      height: 5000px;
      }
 .loading { 
     color:#1f6b52;
@@ -20,6 +21,7 @@
        background: linear-gradient(180deg,#13917c,#11f364);
       padding:12px; 
       border-radius:12px; 
+      box-shadow: 0px 10px 10px rgb(5, 139, 16);
     }
 .left { 
     width:240px; 
@@ -27,6 +29,7 @@
     background-size:cover;
      background-position:center; 
      border-radius:10px; 
+     
     }
 .right h2 {
      margin:0 0 6px 0;

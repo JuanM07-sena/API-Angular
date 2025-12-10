@@ -1,9 +1,13 @@
 export interface SimpsonCharacter {
  _id: string; 
-  Nombre: string; 
-  Imagen: string;
-  Historia: string;
-  Ocupacion: string;
+  name: string; 
+  portrait_path: string;
+  status: string;
+  occupation: string;
+  age: string;
+  gender: string;
+  birthdate: string;
+  phrases: string;
 }
 
 export interface SimpsonResponse {

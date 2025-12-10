@@ -1,18 +1,14 @@
-<section class="sim-wrap">
-  <h1>The Simpsons</h1>
-  <p class="lead">Personajes clásicos</p>
+ <h1>The Simpsons</h1>
+  <p class="lead">Personajes de los Simpsons:e</p>
+<section class="grid">
 
-  <div *ngIf="loading" class="loading">Cargando personajes...</div>
-  <div *ngIf="error && !loading" class="error">{{ error }}</div>
+  @for (p of characters; track p.id) {
 
-  <div class="list" *ngIf="!loading && !error">
-    <article class="sim-card" *ngFor="let p of characters" (click)="openDetail(p.id)">
-      <img [src]="p.image || 'assets/placeholder/simpson.png'" alt="{{p.name}}">
-          <div class="text">
-                    <h3>{{ p.name }}</h3>
-                    <p class="gender">Género: **{{ p.gender }}**</p>
-                    <p class="age">Edad: {{ p.age }}</p>
-                </div>
-    </article>
-  </div>
-</section>
+      <div class="card" (click)="goToDetail(p.id)">
+        <img src="https://cdn.thesimpsonsapi.com/500{{p.portrait_path}}" alt="{{ p.name }}">
+        <h3>{{ p.name }}</h3>
+      </div>
+
+
+    }
+  </section>

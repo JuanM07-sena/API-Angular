@@ -8,7 +8,7 @@
 
   <div *ngIf="error && !loading" class="error">
     <p>{{ error }}</p>
-    <button (click)="load()">Reintentar</button>
+    <button (click)="ngOnInit()">Reintentar</button>
   </div>
 
   <div class="cards" *ngIf="!loading && !error">

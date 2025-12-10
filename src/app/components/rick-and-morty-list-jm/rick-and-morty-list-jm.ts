@@ -18,10 +18,6 @@ export class RickAndMortyListJm implements OnInit {
   constructor(private api: RickAndMortyApiService, private router: Router) {}
 
   ngOnInit(): void {
-    this.load();
-  }
-
-  load(): void {
     this.loading = true;
     this.error = null;
     this.api.getCharacters(1).subscribe({
@@ -31,12 +27,13 @@ export class RickAndMortyListJm implements OnInit {
       },
       error: err => {
         console.error('RM list error', err);
-        this.error = 'No se pudo cargar personajes. Intenta reintentar.';
+        this.error = 'No se pudo cargar personajes. Reintentar.';
         this.loading = false;
       }
     });
   }
 
+ 
   openDetail(id: number) {
     this.router.navigate(['/rick', id]);
   }

@@ -1,37 +1,35 @@
-import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import {  Component, OnInit } from '@angular/core';
 import { SimpsonsApiService } from '../../services/simpsons/simpsons-api';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-simpsons-list_jm',
-  standalone: true,
-  imports: [CommonModule],
+  selector: 'app-simpsons-list',
   templateUrl: './simpsons-list-jm.html',
-  styleUrls: ['./simpsons-list-jm.scss']
+  styleUrls: ['./simpsons-list-jm.scss'],
+  standalone: true,
+  imports: [CommonModule, RouterModule]
 })
 export class SimpsonsListJm implements OnInit {
-  characters: any[] = [];
-  loading = false;
-  error: string | null = null;
 
-  constructor(private api: SimpsonsApiService, private router: Router) {}
+  protected characters: any[] = [];
+  protected limit: number = 0;
+
+  constructor(
+    private _simpsonsService: SimpsonsApiService,
+    private _router: Router,
+
+  ) {}
 
   ngOnInit(): void {
-    this.load();
+    this._simpsonsService.getAll().subscribe((resp: any) => {
+      this.characters = resp.results;
+      this.limit = resp.info.count;
+  
+});
   }
 
-  load(): void {
-    this.loading = true;
-    this.error = null;
-    this.api.getCharacters().subscribe({
-      next: list => { this.characters = list ?? []; this.loading = false; },
-      error: err => { console.error('Simpsons list error', err); this.error = 'No se pudo cargar Simpsons'; this.loading = false; }
-    });
-  }
-
-  openDetail(p: any) {
-    const id = p.id ?? p._id ?? this.characters.indexOf(p);
-    this.router.navigate(['/simpsons', id]);
+  goToDetail(id: number) {
+    this._router.navigate(['/simpsons', id]);
   }
 }
